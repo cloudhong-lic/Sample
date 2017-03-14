@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sample.Datastore
 {
+    // 注释 Comment
     public class Class1
     {
     }
