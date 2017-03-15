@@ -10,5 +10,6 @@ namespace Sample.Domain.Models
 		public int? DamAnimalKey { get; set; }
 		public Sex Sex { get; set; }
 		public Species Species { get; set; }
+		public DateTimeOffset UpdateTime { get; set; }
 	}
 }
