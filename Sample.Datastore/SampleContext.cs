@@ -8,7 +8,7 @@ namespace Sample.Datastore
 	{
 		public IDbSet<Animal> Animals { get; set; }
 
-		public SampleContext() : base("name=Sample")
+		public SampleContext() : base("name=SampleDB")
 		{
 			Configuration.LazyLoadingEnabled = false;
 			Database.SetInitializer<SampleContext>(null);

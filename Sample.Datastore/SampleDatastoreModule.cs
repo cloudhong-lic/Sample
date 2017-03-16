@@ -1,4 +1,6 @@
 ﻿using Ninject.Modules;
+using Sample.Datastore.Repositories;
+using Sample.Domain.Repositories;
 
 namespace Sample.Datastore
 {
@@ -7,6 +9,8 @@ namespace Sample.Datastore
 		public override void Load()
 		{
 			Bind<ISampleContext>().To<SampleContext>();
+
+			Bind<IAnimalRepository>().To<AnimalRepository>();
 		}
 	}
 }
