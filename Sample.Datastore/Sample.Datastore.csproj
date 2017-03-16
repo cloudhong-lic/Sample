@@ -73,10 +73,9 @@
     <Folder Include="Helpers\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="RoundHousE\up\0001 - Create Schema Sample.sql" />
-    <Content Include="RoundHousE\up\0003 - Initial Species table.sql" />
-    <Content Include="RoundHousE\up\0002 - Initial Sex table.sql" />
-    <Content Include="RoundHousE\up\0004 - Initial Animal table.sql" />
+    <Content Include="RoundHousE\up\0002 - Initial Species table.sql" />
+    <Content Include="RoundHousE\up\0001 - Initial Sex table.sql" />
+    <Content Include="RoundHousE\up\0003 - Initial Animal table.sql" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sample.Domain\Sample.Domain.csproj">
