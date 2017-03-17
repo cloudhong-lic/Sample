@@ -62,6 +62,7 @@ namespace Sample.WebApi.App_Start
 		/// <param name="kernel">The kernel.</param>
 		private static void RegisterServices(IKernel kernel)
 		{
+			// 在这里load了webapi自己的module和DatastoreModule
 			kernel.Load(new WebApiModule(), new SampleDatastoreModule());
 		}
 	}

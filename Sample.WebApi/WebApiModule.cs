@@ -6,7 +6,7 @@ namespace Sample.WebApi
 	{
 		public override void Load()
 		{
-			//throw new System.NotImplementedException();
+			// 在NinjectWebCommon中load了SampleDatastoreModule
 		}
 	}
 }

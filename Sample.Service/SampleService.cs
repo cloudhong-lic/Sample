@@ -30,6 +30,8 @@ namespace Sample.Service
 				//_busControl = ConfigureMassTransit();
 				//_busControl.Start();
 
+				// TODO: 在这里直接调用了ISampleHandle, 不太好
+				// 需要寻求更好的方法
 				var animal = _kernel.Get<ISampleHandle>().Handle(1).Result;
 				_logger.Info($"AnimalKey:{animal.AnimalKey}, Sex:{animal.Sex}, Species:{animal.Species}");
 

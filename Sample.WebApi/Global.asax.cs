@@ -12,6 +12,7 @@ namespace Sample.WebApi
 		{
 			GlobalConfiguration.Configure(WebApiConfig.Register);
 
+			// 也可以不在这里加log, 个人觉得没有太大必要
 			VerifyLogging();
 		}
 

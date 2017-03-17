@@ -9,6 +9,10 @@ using WebActivatorEx;
 
 namespace Sample.WebApi.App_Start
 {
+	/// <summary>
+	/// 此为自动生成的配置文件, 只需要将部分注释去掉就可以使用
+	/// 很多配置项还需要研究, 目前这些就够用了
+	/// </summary>
 	public class SwaggerConfig
 	{
 		public static void Register()
@@ -45,7 +49,7 @@ namespace Sample.WebApi.App_Start
 						(apiDesc, targetApiVersion) => ResolveVersionSupportByRouteConstraint(apiDesc, targetApiVersion),
 						vc =>
 						{
-							//vc.Version("v2", "Swashbuckle Dummy API V2");
+							//vc.Version("v1", "Swashbuckle Dummy API V1");
 							vc.Version("v0", "Sample.WebApi V0");
 						});
 
@@ -129,18 +133,18 @@ namespace Sample.WebApi.App_Start
 
 					// Alternatively, you can provide your own custom strategy for inferring SchemaId's for
 					// describing "complex" types in your API.
-					//  
+					//
 					//c.SchemaId(t => t.FullName.Contains('`') ? t.FullName.Substring(0, t.FullName.IndexOf('`')) : t.FullName);
 
 					// Set this flag to omit schema property descriptions for any type properties decorated with the
-					// Obsolete attribute 
+					// Obsolete attribute
 					//c.IgnoreObsoleteProperties();
 
 					// In accordance with the built in JsonSerializer, Swashbuckle will, by default, describe enums as integers.
 					// You can change the serializer behavior by configuring the StringToEnumConverter globally or for a given
 					// enum type. Swashbuckle will honor this change out-of-the-box. However, if you use a different
 					// approach to serialize enums as strings, you can also force Swashbuckle to describe them as strings.
-					// 
+					//
 					c.DescribeAllEnumsAsStrings();
 
 					// Similar to Schema filters, Swashbuckle also supports Operation and Document filters:
@@ -166,7 +170,7 @@ namespace Sample.WebApi.App_Start
 					// In contrast to WebApi, Swagger 2.0 does not include the query string component when mapping a URL
 					// to an action. As a result, Swashbuckle will raise an exception if it encounters multiple actions
 					// with the same path (sans query string) and HTTP method. You can workaround this by providing a
-					// custom strategy to pick a winner or merge the descriptions for the purposes of the Swagger docs 
+					// custom strategy to pick a winner or merge the descriptions for the purposes of the Swagger docs
 					//
 					//c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
 

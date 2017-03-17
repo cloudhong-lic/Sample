@@ -2,6 +2,9 @@
 
 namespace Sample.WebApi.App_Start
 {
+	/// <summary>
+	/// 通过VS创建WebAPI项目时自动生成的文件
+	/// </summary>
 	public static class WebApiConfig
 	{
 		public static void Register(HttpConfiguration config)
