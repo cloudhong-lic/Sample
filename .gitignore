@@ -218,6 +218,7 @@ FakesAssemblies/
 .ntvs_analysis.dat
 
 # Specflow generated files
+# 在编译时自动生成feature.cs文件, 而不上传GitHub
 *.feature.cs
 
 # Visual Studio 6 build log

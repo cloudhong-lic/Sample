@@ -7,6 +7,10 @@ using TechTalk.SpecFlow.Assist;
 
 namespace Sample.TestFramework.Steps
 {
+	/// <summary>
+	/// 全局测试步骤
+	/// 可以将虚拟数据库等内容放在这里
+	/// </summary>
 	[Binding]
 	public class DataSteps
 	{

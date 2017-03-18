@@ -13,6 +13,10 @@ namespace Sample.TestFramework.Steps.DataTable
 		public Species Species { get; set; }
 		public DateTimeOffset UpdateTime { get; set; }
 
+		/// <summary>
+		/// 由于SpecFlow不能很好地支持nullable的数据类型, 尤其是DateTimeOffset类型
+		/// 所以需要建立的Table将测试用例中的string类型转换成相应的数据类型
+		/// </summary>
 		public Animal ToAnimal()
 		{
 			return new Animal

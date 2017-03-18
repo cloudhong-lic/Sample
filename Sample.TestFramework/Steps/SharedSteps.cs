@@ -8,6 +8,10 @@ namespace Sample.TestFramework.Steps
 	[Binding]
 	public static class SharedSteps
 	{
+		/// <summary>
+		/// 全局测试初始化静态方法
+		/// 在具体测试模块中被调用, 以进行依赖注入, Exception初始化, 数据库设置等工作
+		/// </summary>
 		public static void Init(ScenarioContext context)
 		{
 			var kernel = new StandardKernel(new SampleDatastoreModule());
