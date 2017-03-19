@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity;
 using System.Threading.Tasks;
-using Sample.ContextMocks;
+using Library.Testing.EntityFramework;
 using Sample.Datastore;
 using Sample.Domain.Models;
 
