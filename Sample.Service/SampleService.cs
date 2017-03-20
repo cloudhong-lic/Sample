@@ -1,8 +1,14 @@
 ﻿using System;
 using System.Threading;
+using GreenPipes;
+using Library.Configuration.MassTransit;
+using MassTransit;
+using MassTransit.NLogIntegration;
 using Ninject;
 using NLog;
+using Sample.Consumers;
 using Sample.Service.Handlers;
+using Sample2.Messages.Events.v0;
 using Topshelf;
 
 namespace Sample.Service
@@ -12,7 +18,7 @@ namespace Sample.Service
 		private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
 		private readonly CancellationTokenSource _cancellationToken = new CancellationTokenSource();
 		private readonly IKernel _kernel;
-		//private IBusControl _busControl;
+		private IBusControl _busControl;
 
 		public SampleService(IKernel kernel)
 		{
@@ -26,9 +32,9 @@ namespace Sample.Service
 
 			try
 			{
-				//_logger.Info("Start MassTransit");
-				//_busControl = ConfigureMassTransit();
-				//_busControl.Start();
+				_logger.Info("Start MassTransit");
+				_busControl = ConfigureMassTransit();
+				_busControl.Start();
 
 				// TODO: 在这里直接调用了ISampleHandle, 不太好
 				// 需要寻求更好的方法
@@ -51,6 +57,45 @@ namespace Sample.Service
 			//_busControl?.Stop();
 			_cancellationToken.Cancel();
 			_logger.Info("Service stopped");
+		}
+
+		private IBusControl ConfigureMassTransit()
+		{
+			var busControl = Bus.Factory.CreateUsingRabbitMq(sbc =>
+			{
+				var host = sbc.SetupRabbitMqHostFromConfig();
+
+				sbc.UseInMemoryOutbox();
+				sbc.UseNLog();
+
+				sbc.ReceiveEndpoint(
+					host,
+					"Sample.Service",
+					e =>
+					{
+						e.ApplySettingsFromConfig();
+						e.Consumer(
+							() => _kernel.Get<FarmerConsumer>(),
+							x =>
+							{
+								x.Message<INewFarmerEvent>(messageConfigurator =>
+								{
+									messageConfigurator.UsePartitioner(MassTransitConfiguration.ConcurrencyLimit, context => context.Message.Id);
+								});
+							});
+
+						e.UseRetry(r =>
+						{
+							r.Ignore<ActivationException>();
+							r.Immediate(2);
+						});
+					});
+			});
+
+			_kernel.Bind<IBusControl>().ToConstant(busControl);
+			_kernel.Bind<IBus>().ToConstant(busControl);
+
+			return busControl;
 		}
 	}
 }
