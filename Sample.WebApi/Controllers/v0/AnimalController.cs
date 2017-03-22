@@ -24,6 +24,17 @@ namespace Sample.WebApi.Controllers.v0
 			_animalRepository = animalRepository;
 		}
 
+		/// <summary>
+		/// 这个注释会显示在Swagger界面右边
+		/// </summary>
+		/// <remarks>
+		/// 这个注释会显示在Swagger界面左边, Implement Notes下面
+		/// </remarks>
+		/// <param name="animalKey">animal key 这个会显示在参数旁边</param>
+		/// <returns></returns>
+		/// <exception cref="HttpResponseException"></exception>
+		/// <response code="400">Bad request</response>
+		/// <response code="500">Internal Server Error</response>
 		[HttpGet]
 		[Route("{animalKey}")]
 		//[WebApiCache(365 * 24 * 60 * 60, Private = false)]
