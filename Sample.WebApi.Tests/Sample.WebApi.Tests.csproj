@@ -116,6 +116,10 @@
       <Project>{98FE0610-3D95-4C90-AD38-7B4BCCAE8B77}</Project>
       <Name>Sample.TestFramework</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Sample.WebApi.Contract\Sample.WebApi.Contract.csproj">
+      <Project>{E6F77D14-E77B-4B28-9049-1EC377358A06}</Project>
+      <Name>Sample.WebApi.Contract</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sample.WebApi\Sample.WebApi.csproj">
       <Project>{36BB7E5D-FF9F-49F0-B880-6E26DCB76C43}</Project>
       <Name>Sample.WebApi</Name>

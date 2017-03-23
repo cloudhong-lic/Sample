@@ -52,6 +52,10 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Library.WebApi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Library.WebApi.1.0.0\lib\net452\Library.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -129,10 +133,12 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\v0\AnimalController.cs" />
+    <Compile Include="Controllers\v0\AnimalsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Mapping\v0\AnimalMapping.cs" />
+    <Compile Include="Mapping\v0\MappingHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebApiModule.cs" />
   </ItemGroup>
@@ -147,7 +153,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sample.Datastore\Sample.Datastore.csproj">
@@ -157,6 +162,10 @@
     <ProjectReference Include="..\Sample.Domain\Sample.Domain.csproj">
       <Project>{CB189BE2-69B4-44A7-9C00-8BD7E88E364B}</Project>
       <Name>Sample.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sample.WebApi.Contract\Sample.WebApi.Contract.csproj">
+      <Project>{e6f77d14-e77b-4b28-9049-1ec377358a06}</Project>
+      <Name>Sample.WebApi.Contract</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

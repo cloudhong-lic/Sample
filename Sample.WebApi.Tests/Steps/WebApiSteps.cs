@@ -1,8 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Ninject;
-using Sample.Domain.Models;
 using Sample.TestFramework.Steps.DataTable;
+using Sample.WebApi.Contract.v0;
 using Sample.WebApi.Controllers.v0;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
@@ -22,7 +22,7 @@ namespace Sample.WebApi.Tests.Steps
 		[When(@"I request animal (\d*)")]
 		public void WhenIRequestAnimal(int animalKey)
 		{
-			var controller = _context.Get<IKernel>().Get<AnimalController>();
+			var controller = _context.Get<IKernel>().Get<AnimalsController>();
 			try
 			{
 				var response = controller.Get(animalKey).Result;
