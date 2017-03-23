@@ -32,12 +32,14 @@ namespace Sample.Service
 
 			try
 			{
+				// MassTransit的设置和启动
+				// 启动后会监听RabbitMQ中注册的Queue
+				// 然后Consumer会接受消息
 				_logger.Info("Start MassTransit");
 				_busControl = ConfigureMassTransit();
 				_busControl.Start();
 
-				// TODO: 在这里直接调用了ISampleHandle, 不太好
-				// 需要寻求更好的方法
+				// 调用Handle
 				var animal = _kernel.Get<ISampleHandle>().Handle(1).Result;
 				_logger.Info($"AnimalKey:{animal.AnimalKey}, Sex:{animal.Sex}, Species:{animal.Species}");
 
@@ -54,17 +56,22 @@ namespace Sample.Service
 		public void Stop()
 		{
 			_logger.Info("Stopping service");
-			//_busControl?.Stop();
+			_busControl?.Stop();
 			_cancellationToken.Cancel();
 			_logger.Info("Service stopped");
 		}
 
+		/// <summary>
+		/// MassTransit的设置方法
+		/// </summary>
 		private IBusControl ConfigureMassTransit()
 		{
 			var busControl = Bus.Factory.CreateUsingRabbitMq(sbc =>
 			{
+				// 调用Library中的全局MassTransit Setup
 				var host = sbc.SetupRabbitMqHostFromConfig();
 
+				// 其实这两项也可以放到Library里去吧
 				sbc.UseInMemoryOutbox();
 				sbc.UseNLog();
 
@@ -73,7 +80,10 @@ namespace Sample.Service
 					"Sample.Service",
 					e =>
 					{
+						// 调用Library中的全局MassTransit Setup
 						e.ApplySettingsFromConfig();
+
+						// 设置Consumer中监听的事件INewFarmerEvent
 						e.Consumer(
 							() => _kernel.Get<FarmerConsumer>(),
 							x =>

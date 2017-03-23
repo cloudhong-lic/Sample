@@ -8,6 +8,7 @@ namespace Sample.Service
 	{
 		static void Main(string[] args)
 		{
+			// Topshelf Service框架
 			HostFactory.Run(hf =>
 			{
 				hf.UseNinject(
@@ -26,6 +27,8 @@ namespace Sample.Service
 				hf.DependsOnMsmq();
 
 				// Set up identification strings
+				// 这些设置会在运行的Service中显示
+				// TODO:如何让Service在Windows Services中运行
 				hf.SetDescription("Sample Service to handle messages");
 				hf.SetDisplayName("Sample - Service");
 				hf.SetServiceName("Sample.Service");
