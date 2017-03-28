@@ -13,10 +13,13 @@ namespace Sample.WebApi.Contract.v0
 		public static class Animals
 		{
 			public static string ResourceName = $"{ServiceName}.Animals";
+			public static string BaseUri = $"{Version}/Animals";
 
 			public static string Get(int animalKey)
 			{
-				var location = $"{Version}/Animals/{animalKey}";
+				//var location = $"{ServiceName}/{BaseUri}/{animalKey}";
+				//TODO: 目前还不知道如何将ServiceName作为路径, 这个和运行IISExpress以及applicationhost.config有关
+				var location = $"{BaseUri}/{animalKey}";
 				return location.ToLowerInvariant();
 			}
 		}
