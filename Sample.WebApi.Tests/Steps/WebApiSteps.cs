@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Ninject;
-using Sample.TestFramework.Steps.DataTable;
 using Sample.WebApi.Contract.v0;
 using Sample.WebApi.Controllers.v0;
 using TechTalk.SpecFlow;
@@ -37,7 +36,7 @@ namespace Sample.WebApi.Tests.Steps
 		[Then(@"the following animal is returned")]
 		public void ThenTheFollowingAnimalIsReturned(Table table)
 		{
-			var expected = table.CreateInstance<AnimalTable>().ToAnimal();
+			var expected = table.CreateInstance<Animal>();
 			var animal = _context.GetResponse() as Animal;
 			Assert.IsNotNull(animal);
 
