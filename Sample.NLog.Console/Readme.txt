@@ -1,4 +1,4 @@
 ﻿
 纯Nlog的使用
 
-不适用任何其他库
+使用Newtonsoft.Json来解析Object为JSON

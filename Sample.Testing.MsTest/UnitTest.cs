@@ -59,7 +59,7 @@ namespace Sample.Testing.MsTest
 			Assert.AreEqual(Species.Cattle, animal.Species);
 		}
 
-// TODO: 由于未知原因EntityFramework.Testing.Moq.Ninject不工作, 可能是由于Ninject的方法不对造成的
+// TODO: 由于未知原因EntityFramework.Testing.Moq.Ninject不工作, 可能是由于调用Ninject的方法不对造成的
 //		[TestMethod]
 //		public async Task TestMethod2()
 //		{
