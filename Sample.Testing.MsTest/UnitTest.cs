@@ -57,42 +57,44 @@ namespace Sample.Testing.MsTest
 			Assert.AreEqual(_date, animal.BirthDate);
 			Assert.AreEqual(Sex.Female, animal.Sex);
 			Assert.AreEqual(Species.Cattle, animal.Species);
+
+			_logger.Verify(x => x.Info(It.Is<string>(s => s.StartsWith("Object:"))), Times.Once);
 		}
 
-// TODO: 由于未知原因EntityFramework.Testing.Moq.Ninject不工作, 可能是由于调用Ninject的方法不对造成的
-//		[TestMethod]
-//		public async Task TestMethod2()
-//		{
-//			using (var kernel = new MoqMockingKernel())
-//			{
-//				kernel.Load(new EntityFrameworkTestingMoqModule(), new SampleDatastoreModule());
-//
-//				var date = DateTimeOffset.Now;
-//				var data = new List<Animal>
-//				{
-//					new Animal { AnimalKey = 1, BirthDate = date, Sex = Sex.Female, Species = Species.Cattle },
-//					new Animal { AnimalKey = 2, BirthDate = date.AddYears(1), Sex = Sex.Male, Species = Species.Deer },
-//					new Animal { AnimalKey = 3 }
-//				};
-//
-//				// Create a mock set and context
-//				var set = kernel.GetMock<DbSet<Animal>>().SetupData(data);
-//
-//				// Setup mock set
-//				//var context = new Mock<ISampleContext>();
-//				var context = kernel.GetMock<SampleContext>();
-//				kernel.Rebind<ISampleContext>().ToConstant(context.Object);
-//
-//				var handler1 = kernel.Get<Handler1>();
-//				var animal = await handler1.GetAnimalByAnimalKey(1).ConfigureAwait(false);
-//
-//				// Check the results
-//				Assert.IsNotNull(animal);
-//				Assert.AreEqual(1, animal.AnimalKey);
-//				Assert.AreEqual(date, animal.BirthDate);
-//				Assert.AreEqual(Sex.Female, animal.Sex);
-//				Assert.AreEqual(Species.Cattle, animal.Species);
-//			}
-//		}
+		// TODO: 由于未知原因EntityFramework.Testing.Moq.Ninject不工作, 可能是由于调用Ninject的方法不对造成的
+		//		[TestMethod]
+		//		public async Task TestMethod2()
+		//		{
+		//			using (var kernel = new MoqMockingKernel())
+		//			{
+		//				kernel.Load(new EntityFrameworkTestingMoqModule(), new SampleDatastoreModule());
+		//
+		//				var date = DateTimeOffset.Now;
+		//				var data = new List<Animal>
+		//				{
+		//					new Animal { AnimalKey = 1, BirthDate = date, Sex = Sex.Female, Species = Species.Cattle },
+		//					new Animal { AnimalKey = 2, BirthDate = date.AddYears(1), Sex = Sex.Male, Species = Species.Deer },
+		//					new Animal { AnimalKey = 3 }
+		//				};
+		//
+		//				// Create a mock set and context
+		//				var set = kernel.GetMock<DbSet<Animal>>().SetupData(data);
+		//
+		//				// Setup mock set
+		//				//var context = new Mock<ISampleContext>();
+		//				var context = kernel.GetMock<SampleContext>();
+		//				kernel.Rebind<ISampleContext>().ToConstant(context.Object);
+		//
+		//				var handler1 = kernel.Get<Handler1>();
+		//				var animal = await handler1.GetAnimalByAnimalKey(1).ConfigureAwait(false);
+		//
+		//				// Check the results
+		//				Assert.IsNotNull(animal);
+		//				Assert.AreEqual(1, animal.AnimalKey);
+		//				Assert.AreEqual(date, animal.BirthDate);
+		//				Assert.AreEqual(Sex.Female, animal.Sex);
+		//				Assert.AreEqual(Species.Cattle, animal.Species);
+		//			}
+		//		}
 	}
 }

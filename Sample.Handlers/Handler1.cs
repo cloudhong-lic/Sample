@@ -20,10 +20,9 @@ namespace Sample.Handlers
 		public async Task<Animal> GetAnimalByAnimalKey(int animalKey)
 		{
 			var animal = await _animalRepository.Get(animalKey).ConfigureAwait(false);
-			_logger.Info("Object: {0}", JsonConvert.SerializeObject(animal));
+			_logger.Info($"Object: {JsonConvert.SerializeObject(animal)}");
 
 			return animal;
 		}
-
 	}
 }

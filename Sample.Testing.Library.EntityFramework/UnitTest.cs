@@ -6,9 +6,7 @@ using Moq;
 using Ninject;
 using Ninject.Extensions.Logging;
 using Sample.Datastore;
-using Sample.Datastore.Repositories;
 using Sample.Domain.Models;
-using Sample.Domain.Repositories;
 using Sample.Handlers;
 
 namespace Sample.Testing.Library.EntityFramework
@@ -16,9 +14,7 @@ namespace Sample.Testing.Library.EntityFramework
 	[TestClass]
 	public class UnitTest
 	{
-		private IAnimalRepository _animalRepository;
 		private readonly Mock<ILogger> _logger = new Mock<ILogger>();
-
 		private readonly DateTimeOffset _date = DateTimeOffset.Now;
 		private Handler1 _handler1;
 
@@ -27,6 +23,10 @@ namespace Sample.Testing.Library.EntityFramework
 		{
 			var kernel = new StandardKernel(new SampleDatastoreModule());
 
+			// Rebind
+			kernel.Rebind<ISampleContext>().ToConstant(new MockSampleContext());
+			kernel.Rebind<ILogger>().ToConstant(_logger.Object);
+
 			// 生成一些数据
 			var data = new List<Animal>
 				{
@@ -34,15 +34,10 @@ namespace Sample.Testing.Library.EntityFramework
 					new Animal { AnimalKey = 2, BirthDate = _date.AddYears(1), Sex = Sex.Male, Species = Species.Deer },
 					new Animal { AnimalKey = 3 }
 				};
-
-			// Database context
-			var context = new MockSampleContext();
-			kernel.Rebind<ISampleContext>().ToConstant(context);
 			data.ForEach(x => kernel.Get<ISampleContext>().Animals.Attach(x));
 
 			// new一个新的Handler做测试之用
-			_animalRepository = new AnimalRepository(context);
-			_handler1 = new Handler1(_animalRepository, _logger.Object);
+			_handler1 = kernel.Get<Handler1>();
 		}
 
 		[TestMethod]
@@ -57,6 +52,8 @@ namespace Sample.Testing.Library.EntityFramework
 			Assert.AreEqual(_date, animal.BirthDate);
 			Assert.AreEqual(Sex.Female, animal.Sex);
 			Assert.AreEqual(Species.Cattle, animal.Species);
+
+			_logger.Verify(x => x.Info(It.Is<string>(s => s.StartsWith("Object:"))), Times.Once);
 		}
 	}
 }
