@@ -39,6 +39,10 @@
       <HintPath>..\packages\Castle.Core.4.0.0\lib\net45\Castle.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Library.Logging, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Library.Logging.1.0.0\lib\net452\Library.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Moq, Version=4.7.8.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <HintPath>..\packages\Moq.4.7.8\lib\net45\Moq.dll</HintPath>
       <Private>True</Private>
@@ -73,6 +77,10 @@
     <ProjectReference Include="..\Sample.NLog.Extensions\Sample.NLog.Extensions.csproj">
       <Project>{CAEDAAB8-6CBC-4819-A38D-9BC6111A2307}</Project>
       <Name>Sample.NLog.Extensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sample.NLog.Library\Sample.NLog.Library.csproj">
+      <Project>{5762097f-6bd3-46a6-828f-f55ef01dd59a}</Project>
+      <Name>Sample.NLog.Library</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

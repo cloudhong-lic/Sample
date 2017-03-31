@@ -16,7 +16,10 @@ namespace Sample.NLog.Extensions
 
 		public void ShowLog()
 		{
-			_logger.Trace("Sample trace message");
+			// 如果使用这种方法log参数, 在测试中就不太方便了.
+			// 还是建议使用字符串拼接, 虽然可能损失一些性能, 但方便
+			_logger.Trace("Sample trace message, {0}", 1);
+
 			_logger.Debug("Sample debug message");
 			_logger.Info("Sample informational message");
 			_logger.Warn("Sample warning message");

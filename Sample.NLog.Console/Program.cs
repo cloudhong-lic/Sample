@@ -44,6 +44,8 @@ namespace Sample.NLog.Console
 			logger.Info($"Sample informational message, {k}");
 
 			// 调用built-in formatting functionality of NLog, 性能更好一些
+			// 但在测试中就不太方便了, 具体见测试轮子.
+			// 还是建议使用字符串拼接, 虽然可能损失一些性能, 但方便
 			logger.Info("Sample informational message, {0}", k);
 		}
 
