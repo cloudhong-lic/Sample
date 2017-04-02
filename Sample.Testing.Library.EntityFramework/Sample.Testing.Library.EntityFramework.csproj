@@ -86,6 +86,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Readme.markdown" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sample.Datastore\Sample.Datastore.csproj">
