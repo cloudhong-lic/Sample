@@ -11,6 +11,7 @@ namespace Sample.NLog.Test
 	[TestClass]
 	public class TestNLog
 	{
+		// 测试Ninject.Extensions.Logging的ILogger接口
 		[TestMethod]
 		public void TestNLogExtensions()
 		{
@@ -23,6 +24,9 @@ namespace Sample.NLog.Test
 
 			// 检查某一个Log是否被调用到
 			mockLogger.Verify(x => x.Info(It.Is<string>(s => s == "Sample informational message")), Times.Once);
+
+			// Verify带参数的Log方法, 由于接受两个参数, 所以需要检查一个It.IsAny<object[]>(), 不是很方便
+			// 所以在实际log的时候使用拼接字符串更方便一些, 虽然损失一些性能
 			mockLogger.Verify(x => x.Trace(It.Is<string>(s => s == "Sample trace message, {0}"), It.IsAny<object[]>()), Times.Once);
 		}
 
@@ -32,7 +36,7 @@ namespace Sample.NLog.Test
 			// Mock ILog接口
 			var mockLogger = new Mock<ILog>();
 
-			// Setup Log Factory, 这点很麻烦
+			// Mock Log Factory, 这点很麻烦
 			var mockLogFactory = new Mock<ILogFactory>();
 			mockLogFactory.Setup(x => x.CreateLog(It.IsAny<Type>())).Returns(mockLogger.Object);
 
@@ -42,6 +46,9 @@ namespace Sample.NLog.Test
 
 			// 检查某一个Log是否被调用到
 			mockLogger.Verify(x => x.Info(It.Is<string>(s => s == "Sample informational message")), Times.Once);
+
+			// Verify一个委托Func的Log方法, 需要Invoke一下
+			// TODO: 不确定这是一个正确的方法, 但是可以用
 			mockLogger.Verify(x => x.Info(It.Is<Func<string>>(s => s.Invoke().StartsWith("Sample object message"))), Times.Once);
 		}
 	}

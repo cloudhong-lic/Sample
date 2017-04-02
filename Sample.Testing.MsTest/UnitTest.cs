@@ -40,9 +40,11 @@ namespace Sample.Testing.MsTest
 			var context = new Mock<ISampleContext>();
 			context.Setup(c => c.Animals).Returns(set.Object);
 
-			// new一个新的Handler做测试之用
+			// 第一种方法: new一个新的Handler做测试之用
 			_animalRepository = new AnimalRepository(context.Object);
 			_handler1 = new Handler1(_animalRepository, _logger.Object);
+
+			// TODO: 第二种方法: 使用Ninject去获得_handler1, 应该更好
 		}
 
 		[TestMethod]
