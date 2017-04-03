@@ -51,6 +51,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.NLog.Library", "Samp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.Testing.Library.EntityFramework", "Sample.Testing.Library.EntityFramework\Sample.Testing.Library.EntityFramework.csproj", "{74943314-762B-4F26-949A-B00DD975FD25}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebSite", "WebSite", "{17CD9B86-FBD8-4A57-A4F1-1CBADEBA2FAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.WebSite.React", "Sample.WebSite.React\Sample.WebSite.React.csproj", "{2BB94890-D79E-4BA2-849D-8BA3B10D7A77}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +133,10 @@ Global
 		{74943314-762B-4F26-949A-B00DD975FD25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74943314-762B-4F26-949A-B00DD975FD25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74943314-762B-4F26-949A-B00DD975FD25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BB94890-D79E-4BA2-849D-8BA3B10D7A77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BB94890-D79E-4BA2-849D-8BA3B10D7A77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BB94890-D79E-4BA2-849D-8BA3B10D7A77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BB94890-D79E-4BA2-849D-8BA3B10D7A77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -150,5 +158,6 @@ Global
 		{1DF860B4-97EE-49BB-8CFC-2C61405387BF} = {F241F009-590B-4704-9806-AEF8FF4012CD}
 		{5762097F-6BD3-46A6-828F-F55EF01DD59A} = {42E8B37C-4624-4BBB-95D5-639B8D46D5D7}
 		{74943314-762B-4F26-949A-B00DD975FD25} = {F241F009-590B-4704-9806-AEF8FF4012CD}
+		{2BB94890-D79E-4BA2-849D-8BA3B10D7A77} = {17CD9B86-FBD8-4A57-A4F1-1CBADEBA2FAA}
 	EndGlobalSection
 EndGlobal
