@@ -245,3 +245,4 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 /Sample.WebSite.React/dist/scripts
+/Sample.WebSite.React/.vscode/settings.json

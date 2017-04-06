@@ -17,11 +17,22 @@ var config = {
         // filename: "./dist/scripts/bundle.js"
         filename: OUTPUT_DIR + '/bundle.js'
     },
+
+    devtool: 'source-map',
+
     module: {
         loaders: [
             // .jsx 文件使用babel-loader来编译处理
-            { test: /\.jsx?$/, loader: "babel-loader", exclude: /node_modules/, query: { presets: ['es2015', 'react'] }
-        }]
+            { test: /\.jsx?$/, loader: "babel-loader", exclude: /node_modules/, query: { presets: ['es2015', 'react'] } },
+
+            // LESS
+            { test: /\.less$/, loader: 'style!css!less' }
+        ]
+    },
+
+    resolve: {
+        // you can now require('file') instead of require('file.coffee')
+        extensions: ['', '.js', '.json', '.coffee'] 
     }
 };
 

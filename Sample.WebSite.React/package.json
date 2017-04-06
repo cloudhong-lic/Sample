@@ -2,44 +2,44 @@
 	"version": "1.0.0",
 	"name": "sample.website.react",
 	"description": "A simple webpack example.",
-	"main": "bundle.js",	// TODO: webpack的output文件, 好像不是必须的
-	"private": true,	// private是true的话, npm就不会发布它
+	"main": "bundle.js",
+	"private": true,
 
-	// 此块配置定义npm run的命令脚本
-	// 例如 npm run dev-build
 	"scripts": {
-		"build": "webpack -d --config webpack.config.js --colors",	// 定义一个webpack的编译脚本
-		"watch": "webpack -d --config webpack.config.js --watch --colors",	// 定义一个webpack的watch的脚本
+		"dev": "webpack-dev-server --devtool eval --progress --colors --hot --content-base build",
+		"build": "webpack -d --config webpack.config.js --colors",
+		"watch": "webpack -d --config webpack.config.js --watch --colors",
 		"prod": "SET NODE_ENV=production&&webpack -p --config webpack.config.js --colors"
 	},
 
-	// 不要将测试或过渡性的依赖放在dependencieshash中
 	"dependencies": {
-		"react": "15.0.2",	// 15.0.2为版本号
-		"react-dom": ">=15.0.2",	// 可以大于等于此版本号
-		"react-router": "2.4.x",	// 也可以定义一个x, 这样取最新的2.4.x的版本	
-		"react-addons-css-transition-group": "15.0.0 - 15.0.2",	// 也可以定义一个范围
-		"react-addons-update": "15.0.2",
-		"react-dnd": "2.1.4",
-		"react-dnd-html5-backend": "2.1.2",
-		"whatwg-fetch": "1.0.0",
-		"babel-polyfill": "6.8.0"
+		"react": "~15.4.2",
+		"react-dom": "~15.4.2",
+		"react-router": "~4.0.x",
+		"react-addons-css-transition-group": "~15.4.2",
+		"react-addons-update": "~15.4.2",
+		"react-dnd": "~2.3.0",
+		"react-dnd-html5-backend": "~2.3.0",
+		"whatwg-fetch": "~2.0.3",
+		"babel-polyfill": "~6.23.0"
 	},
 
-	// 外部测试或文档框架
 	"devDependencies": {
-		"babel-core": "6.8.0",
-		"babel-loader": "6.2.4",
-		"babel-preset-es2015": "6.6.0",
-		"babel-preset-react": "6.5.0",
-		"eslint": "^3.16.1",
-		"eslint-config-airbnb": "^14.1.0",
-		"eslint-plugin-import": "^2.2.0",
-		"eslint-plugin-jsx-a11y": "^4.0.0",
-		"eslint-plugin-react": "^6.10.0",
-		"eslint-teamcity": "^1.3.1",
-		"webpack": "1.13.0",
-		"webpack-dev-server": "1.13.0",
-		"html-webpack-plugin": "2.16.0"
+		"less": "~2.3.1",
+		"less-loader": "~4.0.3",
+		"babel-core": "~6.24.0",
+		"babel-loader": "~6.4.1",
+		"babel-preset-es2015": "~6.24.0",
+		"babel-preset-react": "~6.23.0",
+		"babel-eslint": "~7.2.1",
+		"eslint": "~3.19.0",
+		"eslint-config-airbnb": "~14.1.0",
+		"eslint-plugin-import": "~2.2.0",
+		"eslint-plugin-jsx-a11y": "~4.0.0",
+		"eslint-plugin-react": "~6.10.0",
+		"eslint-teamcity": "~1.3.1",
+		"webpack": "~2.3.3",
+		"webpack-dev-server": "~2.4.2",
+		"html-webpack-plugin": "~2.28.0"
 	}
 }
