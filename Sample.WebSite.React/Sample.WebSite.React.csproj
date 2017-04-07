@@ -114,9 +114,7 @@
     <Content Include="packages.config" />
     <Content Include="Views\web.config" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="package.json" />
     <Content Include="webpack.config.js" />
-    <Content Include="src\scripts\index.jsx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -136,9 +134,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="src\styles\app.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="package.json" />
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Content Include="src\styles\app.less" />
+    <Folder Include="src\scripts\" />
+    <Content Include="src\scripts\index.jsx" />
+    <Content Include="src\styles\main.less" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

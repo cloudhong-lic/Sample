@@ -1,7 +1,8 @@
-@color1: #E283AE;
+// 导入全局less文件
+@import "./main.less";
 
-html,
-body {
-	height: 100%;
-    color: red;
+// 定义自己这个文件特有的style
+// TODO: 不是很清楚如果classname在两个jsx文件中重复了会发生什么事情
+.my-div {
+    color: blue;
 }
