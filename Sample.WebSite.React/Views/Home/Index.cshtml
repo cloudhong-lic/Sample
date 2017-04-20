@@ -1,25 +1,31 @@
-﻿
-@{
+﻿<!--这部分如果不适用MVC5就不是必须的-->
+<!--@{
     Layout = null;
-}
+}-->
 
 <!DOCTYPE html>
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <!--浏览器兼容设置-->
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, target-densitydpi=device-dpi">
     <title>Sample.WebSite.React</title>
 
     <!--在此使用编译后的唯一css文件-->
+    <!--TODO: 需要将其编译为min的文件-->
     <link rel="stylesheet" type="text/css" href="~/dist/styles/app.css" />
 </head>
 <body>
-    <div>Sample.WebSite.React</div>
+    <div>This part is from Views/Home/Index.cshtml. 蓝色</div>
 
-    <!--此id会在index.jsx中作为React UI的入口使用-->
-    <div id="app" />
+    <!--此id会在main.jsx中作为React UI的入口使用-->
+    <div id="main" />
 
     <!--此行用于指定被webpack build出来的output文件路径-->
+    <!--TODO: 需要将其编译为min的文件-->
     <script src="~/dist/scripts/bundle.js" type="text/javascript"></script>
 </body>
 </html>

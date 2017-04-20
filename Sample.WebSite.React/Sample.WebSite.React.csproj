@@ -115,6 +115,7 @@
     <Content Include="Views\web.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="webpack.config.js" />
+    <Content Include="src\styles\main.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -134,17 +135,21 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="src\styles\app.less" />
+    <Content Include="src\styles\page1.less" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="package.json" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="src\scripts\main.jsx" />
+    <Content Include="src\styles\global.less" />
+    <Content Include="src\scripts\components\page1.jsx" />
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="src\scripts\" />
-    <Content Include="src\scripts\index.jsx" />
-    <Content Include="src\styles\main.less" />
+    <Content Include=".eslintrc.js" />
+    <Content Include=".eslintignore" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
