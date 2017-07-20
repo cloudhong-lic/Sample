@@ -150,6 +150,19 @@
     <Folder Include="Models\" />
     <Content Include=".eslintrc.js" />
     <Content Include=".eslintignore" />
+    <Content Include="src\scripts\store\configureStore.js" />
+    <Content Include="src\scripts\store\configureStore.dev.js" />
+    <Content Include="src\scripts\store\configureStore.prod.js" />
+    <Content Include="src\scripts\constants\ActionTypes.js" />
+    <Content Include="src\scripts\reducers\counter.js" />
+    <Content Include="src\scripts\reducers\index.js" />
+    <Content Include="src\scripts\actions\CounterActions.js" />
+    <Content Include="src\scripts\containers\CounterApp.js" />
+    <Content Include="src\scripts\containers\DevTools.js" />
+    <Content Include="src\scripts\containers\Root.dev.js" />
+    <Content Include="src\scripts\containers\Root.js" />
+    <Content Include="src\scripts\containers\Root.prod.js" />
+    <Content Include="src\scripts\components\Counter.js" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
