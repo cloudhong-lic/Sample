@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -59,5 +61,36 @@ namespace Sample.WebApi.Controllers.v0
 				throw new HttpResponseException(HttpStatusCode.InternalServerError);
 			}
 		}
+
+		/// <summary>
+		/// 通过Sql Query获取数据
+		/// </summary>
+		/// <param name="animalKeys"></param>
+		/// <returns></returns>
+		/// <exception cref="HttpResponseException"></exception>
+		[HttpPost]
+		[Route("")]
+		[WebApiCache(365 * 24 * 60 * 60, Private = false)]
+		public async Task<List<Animal>> Get(int[] animalKeys)
+		{
+			try
+			{
+				var result = await _animalRepository.GetBySqlQueryWithoutParameter(animalKeys).ConfigureAwait(false);
+				if (result == null)
+				{
+					throw new HttpResponseException(HttpStatusCode.BadRequest);
+				}
+
+				// 此处使用了linq语句, 而不是foreach
+				// 其实两种等价, 可以替换使用
+				return result.Select(animal => animal.ToContract()).ToList();
+			}
+			catch (Exception e)
+			{
+				_logger.Error(e, "Failed to retrieve animals");
+				throw new HttpResponseException(HttpStatusCode.InternalServerError);
+			}
+		}
+
 	}
 }

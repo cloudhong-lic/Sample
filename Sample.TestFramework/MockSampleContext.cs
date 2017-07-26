@@ -14,9 +14,12 @@ namespace Sample.TestFramework
 	{
 		public IDbSet<Animal> Animals { get; set; }
 
+		public Database Database { get; }
+
 		public Task<int> SaveChangesAsync()
 		{
 			return Task.FromResult(1);
 		}
+
 	}
 }

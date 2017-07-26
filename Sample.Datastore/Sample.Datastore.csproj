@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="ISampleContext.cs" />
     <Compile Include="Mappings\AnimalMappings.cs" />
+    <Compile Include="Models\RawAnimalData.cs" />
     <Compile Include="Repositories\AnimalRepository.cs" />
     <Compile Include="SampleContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
