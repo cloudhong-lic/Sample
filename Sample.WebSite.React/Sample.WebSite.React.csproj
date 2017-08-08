@@ -150,6 +150,16 @@
     <Folder Include="Models\" />
     <Content Include=".eslintrc.js" />
     <Content Include=".eslintignore" />
+    <Content Include="src\scripts\containers\AppContainer.js" />
+    <Content Include="src\scripts\actions\TodoActionTypes.js" />
+    <Content Include="src\scripts\actions\TodoActions.js" />
+    <Content Include="src\scripts\dispatcher\TodoDispatcher.js" />
+    <Content Include="src\scripts\modules\Counter.js" />
+    <Content Include="src\scripts\modules\Todo.js" />
+    <Content Include="src\scripts\components\AppView.js" />
+    <Content Include="src\scripts\stores\TodoDraftStore.js" />
+    <Content Include="src\scripts\stores\TodoEditStore.js" />
+    <Content Include="src\scripts\stores\TodoStore.js" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
