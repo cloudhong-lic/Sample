@@ -9,10 +9,10 @@ import AppContainer from '../scripts/containers/AppContainer';
 
 // This should be the preferred option for all stateless components
 // 根据React要求, stateless component最好使用pure function
-function Main() {
-  return (
-    <div className="main">
-      <p className="my-div">
+function Main () {
+	return (
+    <div className='main'>
+      <p className='my-div'>
         This part is from src/scripts/index.jsx. 使用了全局的颜色: 粉色
       </p>
 
@@ -20,7 +20,7 @@ function Main() {
       {/* <Page1 /> */}
       <AppContainer />
     </div>
-  );
+	);
 }
 
 render(<Main />, document.getElementById('main'));

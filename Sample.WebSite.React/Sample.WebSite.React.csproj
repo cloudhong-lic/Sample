@@ -160,6 +160,11 @@
     <Content Include="src\scripts\stores\TodoDraftStore.js" />
     <Content Include="src\scripts\stores\TodoEditStore.js" />
     <Content Include="src\scripts\stores\TodoStore.js" />
+    <Content Include="src\scripts\components\Footer.js" />
+    <Content Include="src\scripts\components\Header.js" />
+    <Content Include="src\scripts\components\NewTodo.js" />
+    <Content Include="src\scripts\components\TodoItem.js" />
+    <Content Include="src\scripts\components\Main.js" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

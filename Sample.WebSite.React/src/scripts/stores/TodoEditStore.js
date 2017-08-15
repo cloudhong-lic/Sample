@@ -5,26 +5,26 @@ import TodoActionTypes from '../actions/TodoActionTypes';
 import TodoDispatcher from '../dispatcher/TodoDispatcher';
 
 class TodoEditStore extends ReduceStore {
-  constructor() {
-    super(TodoDispatcher);
-  }
+	constructor () {
+		super(TodoDispatcher);
+	}
 
-  getInitialState() {
-    return '';
-  }
+	getInitialState () {
+		return '';
+	}
 
-  reduce(state, action) {
-    switch (action.type) {
-      case TodoActionTypes.START_EDITING_TODO:
-        return action.id;
+	reduce (state, action) {
+		switch (action.type) {
+			case TodoActionTypes.START_EDITING_TODO:
+				return action.id;
 
-      case TodoActionTypes.STOP_EDITING_TODO:
-        return '';
+			case TodoActionTypes.STOP_EDITING_TODO:
+				return '';
 
-      default:
-        return state;
-    }
-  }
+			default:
+				return state;
+		}
+	}
 }
 
 export default new TodoEditStore();
