@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Http;
 using System.Web.Http;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Sample.TestFramework.Steps;
@@ -33,11 +34,11 @@ namespace Sample.WebApi.Tests.Steps
 		[Then(@"the request is not successful")]
 		public void ThenTheRequestIsNotSuccessful(Table table)
 		{
-			var exceptedException = table.CreateInstance<HttpResponseException>();
+			var exceptedException = table.CreateInstance<HttpResponseMessage>();
 			var exception = (HttpResponseException)_context.Get<Exception>().InnerException;
 
-			Assert.AreEqual(exceptedException.Response.StatusCode, exception.Response.StatusCode);
-			Assert.AreEqual(exceptedException.Response.ReasonPhrase, exception.Response.ReasonPhrase);
+			Assert.AreEqual(exceptedException.StatusCode, exception.Response.StatusCode);
+			Assert.AreEqual(exceptedException.ReasonPhrase, exception.Response.ReasonPhrase);
 		}
 	}
 }
