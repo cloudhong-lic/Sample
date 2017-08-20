@@ -71,7 +71,7 @@ namespace Sample.WebApi.Controllers.v0
 		[HttpPost]
 		[Route("")]
 		[WebApiCache(365 * 24 * 60 * 60, Private = false)]
-		public async Task<List<Animal>> Get(int[] animalKeys)
+		public async Task<List<Animal>> Post(int[] animalKeys)
 		{
 			try
 			{

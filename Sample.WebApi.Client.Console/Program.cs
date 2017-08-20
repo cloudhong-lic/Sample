@@ -7,25 +7,48 @@ namespace Sample.WebApi.Client.Console
 {
 	internal class Program
 	{
-		private static readonly Logger _logger = LogManager.GetCurrentClassLogger();
+		private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
 
 		private static void Main(string[] args)
 		{
+			Get();
+
+			GetByAnimalKeys();
+		}
+
+		private static void Get()
+		{
 			IAnimalsProvider animalsProvider = new AnimalsProvider(new HttpServiceHelper());
 
-			_logger.Info($"Getting animal");
+			Logger.Info($"Getting animal");
 
 			var animal = animalsProvider.Get(1).Result;
 
-			_logger.Info($"Get animal: {animal.AnimalKey}");
+			Logger.Info($"Get animal: {animal.AnimalKey}");
 
 			// Log等级排序, 从低到高
-			_logger.Trace("Trace");
-			_logger.Debug("Debug");
-			_logger.Info("Info");
-			_logger.Warn("Warn");
-			_logger.Error("Error");
-			_logger.Fatal("Fatal");
+			Logger.Trace("Trace");
+			Logger.Debug("Debug");
+			Logger.Info("Info");
+			Logger.Warn("Warn");
+			Logger.Error("Error");
+			Logger.Fatal("Fatal");
+		}
+
+		private static void GetByAnimalKeys()
+		{
+			IAnimalsProvider animalsProvider = new AnimalsProvider(new HttpServiceHelper());
+
+			Logger.Info($"Getting animals by animal keys");
+
+			int[] animalKeys = {1, 2};
+
+			var animals = animalsProvider.GetByAnimalKeys(animalKeys).Result;
+
+			Logger.Info($"Get animal by animal keys:");
+
+			foreach (var animal in animals)
+				Logger.Info($"AnimalKey: {animal.AnimalKey}");
 		}
 	}
 }

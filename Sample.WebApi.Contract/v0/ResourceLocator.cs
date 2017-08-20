@@ -22,6 +22,13 @@ namespace Sample.WebApi.Contract.v0
 				var location = $"{BaseUri}/{animalKey}";
 				return location.ToLowerInvariant();
 			}
+
+			// 对于Post来说, payload不需要加到参数中去
+			public static string GetByAnimalkeys()
+			{
+				var location = $"{BaseUri}";
+				return location.ToLowerInvariant();
+			}
 		}
 
 		/// <summary>

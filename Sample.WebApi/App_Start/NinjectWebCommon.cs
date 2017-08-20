@@ -63,6 +63,7 @@ namespace Sample.WebApi.App_Start
 		private static void RegisterServices(IKernel kernel)
 		{
 			// 在这里load了webapi自己的module和DatastoreModule
+			// TODO: 是否暴露Datastore需要考虑, 另外一种做法就是将Datastore的Ninject bind单独做成project给其他projects调用
 			kernel.Load(new WebApiModule(), new SampleDatastoreModule());
 		}
 	}

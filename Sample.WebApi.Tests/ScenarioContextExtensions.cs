@@ -1,4 +1,6 @@
-﻿using TechTalk.SpecFlow;
+﻿using System.Collections.Generic;
+using Sample.Domain.Models;
+using TechTalk.SpecFlow;
 
 namespace Sample.WebApi.Tests
 {
@@ -10,6 +12,7 @@ namespace Sample.WebApi.Tests
 	public static class ScenarioContextExtensions
 	{
 		private const string Response = "Response";
+		private const string Animals = "Animals";
 
 		/// <summary>
 		/// Response为WebApi中的请求结果, 类型暂时为object, 以后再转换
@@ -22,6 +25,16 @@ namespace Sample.WebApi.Tests
 		public static void SetResponse(this ScenarioContext context, object response)
 		{
 			context.Set(response, Response);
+		}
+
+		public static List<Animal> GetAnimals(this ScenarioContext context)
+		{
+			return context.ContainsKey(Animals) ? context[Animals] as List<Animal> : null;
+		}
+
+		public static void SetAnimals(this ScenarioContext context, List<Animal> animals)
+		{
+			context.Set(animals, Animals);
 		}
 	}
 }
