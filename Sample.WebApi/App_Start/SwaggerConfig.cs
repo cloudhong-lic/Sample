@@ -103,6 +103,8 @@ namespace Sample.WebApi.App_Start
 					// those comments into the generated docs and UI. You can enable this by providing the path to one or
 					// more Xml comment files.
 					//
+					// 需要在Project属性中Release和Debug模式下都进行XML文件路径设置
+					// 详细情况参见笔记 http://www.evernote.com/l/AN8PxAUGEihE1ovyZdqMc12CsxTREoaKQaI/
 					c.IncludeXmlComments(GetXmlCommentsPath("Sample.WebApi.XML"));
 
 					// Swashbuckle makes a best attempt at generating Swagger compliant JSON schemas for the various types
