@@ -9,7 +9,7 @@ using TechTalk.SpecFlow.Assist;
 namespace Sample.WebApi.Tests.Steps
 {
 	[Binding]
-	class CommonSteps
+	internal class CommonSteps
 	{
 		private readonly ScenarioContext _context;
 
@@ -21,7 +21,12 @@ namespace Sample.WebApi.Tests.Steps
 		[BeforeScenario]
 		public void Init()
 		{
+			// 调用TestFramework中的SharedSteps, 这个是用于比较复杂的项目
+			// 对于简单的unit test项目, 可以将Shared step中的内容直接放到这里
 			SharedSteps.Init(_context);
+
+			// TODO: 对于需要mock kernel的情况可以考虑使用MoqMockingKernel
+			// ITOPS-ANIMAL的unit test使用这种技术
 		}
 
 		[Then(@"the request is successful")]
