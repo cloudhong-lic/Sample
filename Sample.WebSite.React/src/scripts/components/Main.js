@@ -26,7 +26,7 @@ export default class Main extends React.Component {
                 />
                 <label htmlFor='toggle-all'>
                     Mark all as complete
-      </label>
+                </label>
                 <ul id='todo-list'>
                     {[...this.props.todos.values()].reverse().map(todo => (
                         <TodoItem

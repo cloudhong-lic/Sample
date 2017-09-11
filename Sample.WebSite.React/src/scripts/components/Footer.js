@@ -6,7 +6,7 @@ export default class Footer extends React.Component {
 		super(props);
 	}
 
-  // ES26 的写法
+  // ES6 的写法
   // TODO: 目前webpack config有问题, 暂时不支持这种写法
 	// static propTypes = {
 	// 	todos: PropTypes.array.isRequired,

@@ -10,18 +10,20 @@ import TodoStore from '../stores/TodoStore';
 
 function getStores () {
 	return [
-		TodoEditStore,
 		TodoDraftStore,
+		TodoEditStore,
 		TodoStore
 	];
 }
 
 function getState () {
 	return {
+		// Store state
 		draft: TodoDraftStore.getState(),
 		editing: TodoEditStore.getState(),
 		todos: TodoStore.getState(),
 
+		// Action state
 		onAdd: TodoActions.addTodo,
 		onDeleteCompletedTodos: TodoActions.deleteCompletedTodos,
 		onDeleteTodo: TodoActions.deleteTodo,
