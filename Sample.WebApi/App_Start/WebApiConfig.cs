@@ -1,4 +1,5 @@
 ﻿using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Sample.WebApi.App_Start
 {
@@ -9,16 +10,32 @@ namespace Sample.WebApi.App_Start
 	{
 		public static void Register(HttpConfiguration config)
 		{
-			// Web API configuration and services
+			// 激活CORS, 这样就可以跨domain访问WEBAPI了
+			EnableCrossSiteRequests(config);
 
 			// Web API routes
 			config.MapHttpAttributeRoutes();
 
-//			config.Routes.MapHttpRoute(
-//				"DefaultApi",
-//				"api/{controller}/{id}",
-//				new {id = RouteParameter.Optional}
-//			);
+			//AddRoutes(config);
+		}
+
+		private static void AddRoutes(HttpConfiguration config)
+		{
+			config.Routes.MapHttpRoute(
+				name: "Default",
+				routeTemplate: "api/{controller}/{action}",
+				defaults: new { controller = "", action = "Get" }
+			);
+		}
+
+		private static void EnableCrossSiteRequests(HttpConfiguration config)
+		{
+			var cors = new EnableCorsAttribute(
+				origins: "*",
+				headers: "*",
+				methods: "*");
+
+			config.EnableCors(cors);
 		}
 	}
 }

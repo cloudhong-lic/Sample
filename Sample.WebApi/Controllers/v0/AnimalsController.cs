@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using Library.WebApi.Filters;
 using NLog;
 using Sample.Domain.Repositories;
@@ -43,6 +44,7 @@ namespace Sample.WebApi.Controllers.v0
 		[HttpGet]
 		[Route("{animalKey}")]
 		[WebApiCache(365 * 24 * 60 * 60, Private = false)]
+		[EnableCors("*", "*", "*")]
 		public async Task<Animal> Get(int animalKey)
 		{
 			try
