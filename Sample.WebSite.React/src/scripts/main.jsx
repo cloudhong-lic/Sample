@@ -12,10 +12,6 @@ import AppContainer from '../scripts/containers/AppContainer';
 function Main () {
 	return (
     <div className='main'>
-      <p className='my-div'>
-        This part is from src/scripts/index.jsx. 使用了全局的颜色: 粉色
-      </p>
-
       {/* 在此插入子页面 Page1*/}
       {/* <Page1 /> */}
       <AppContainer />
@@ -23,4 +19,4 @@ function Main () {
 	);
 }
 
-render(<Main />, document.getElementById('main'));
+render(<Main />, document.getElementById('root'));
