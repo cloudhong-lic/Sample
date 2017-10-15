@@ -163,6 +163,6 @@ module.exports = {
         "curly": 0, //if、else、while、for代码块用{}包围
 
         // 使用windows作为文件编辑器, 移除行尾LF的警告
-        "linebreak-style": [2, "windows"]
+        // "linebreak-style": [2, "windows"]
     }
 };

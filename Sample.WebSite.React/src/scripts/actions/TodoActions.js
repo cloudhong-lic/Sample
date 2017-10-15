@@ -1,69 +1,53 @@
-'use strict';
+import AppDispatcher from '../dispatcher/AppDispatcher';
+import TodoConstants from '../constants/TodoConstants';
 
-import TodoActionTypes from '../actions/TodoActionTypes';
-import TodoDispatcher from '../dispatcher/TodoDispatcher';
+const ActionTypes = TodoConstants.ActionTypes;
 
-const Actions = {
-	addTodo (text) {
-		TodoDispatcher.dispatch({
-			type: TodoActionTypes.ADD_TODO,
-			text
-		});
-	},
+export default {
 
-	deleteCompletedTodos () {
-		TodoDispatcher.dispatch({
-			type: TodoActionTypes.DELETE_COMPLETED_TODOS
-		});
-	},
+  create(text) {
+    AppDispatcher.dispatch({
+      actionType: ActionTypes.TODO_CREATE,
+      text: text
+    });
+  },
 
-	deleteTodo (id) {
-		TodoDispatcher.dispatch({
-			type: TodoActionTypes.DELETE_TODO,
-			id
-		});
-	},
+  updateText(id, text) {
+    AppDispatcher.dispatch({
+      actionType: ActionTypes.TODO_UPDATE_TEXT,
+      id: id,
+      text: text
+    });
+  },
 
-	editTodo (id, text) {
-		TodoDispatcher.dispatch({
-			type: TodoActionTypes.EDIT_TODO,
-			id,
-			text
-		});
-	},
+  toggleComplete(todo) {
+    var id = todo.id;
+    var actionType = todo.complete ?
+        ActionTypes.TODO_UNDO_COMPLETE :
+        ActionTypes.TODO_COMPLETE;
 
-	startEditingTodo (id) {
-		TodoDispatcher.dispatch({
-			type: TodoActionTypes.START_EDITING_TODO,
-			id
-		});
-	},
+    AppDispatcher.dispatch({
+      actionType: actionType,
+      id: id
+    });
+  },
 
-	stopEditingTodo () {
-		TodoDispatcher.dispatch({
-			type: TodoActionTypes.STOP_EDITING_TODO
-		});
-	},
+  toggleCompleteAll() {
+    AppDispatcher.dispatch({
+      actionType: ActionTypes.TODO_TOGGLE_COMPLETE_ALL
+    });
+  },
 
-	toggleAllTodos () {
-		TodoDispatcher.dispatch({
-			type: TodoActionTypes.TOGGLE_ALL_TODOS
-		});
-	},
+  destroy(id) {
+    AppDispatcher.dispatch({
+      actionType: ActionTypes.TODO_DESTROY,
+      id: id
+    });
+  },
 
-	toggleTodo (id) {
-		TodoDispatcher.dispatch({
-			type: TodoActionTypes.TOGGLE_TODO,
-			id
-		});
-	},
-
-	updateDraft (text) {
-		TodoDispatcher.dispatch({
-			type: TodoActionTypes.UPDATE_DRAFT,
-			text
-		});
-	}
+  destroyCompleted() {
+    AppDispatcher.dispatch({
+      actionType: ActionTypes.TODO_DESTROY_COMPLETED
+    });
+  }
 };
-
-export default Actions;

@@ -112,6 +112,7 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
+    <Content Include="src\scripts\actions\TodoActions.js" />
     <Content Include="Views\web.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="webpack.config.js" />
@@ -146,25 +147,23 @@
     <Content Include="src\scripts\components\page1.jsx" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
     <Content Include=".eslintrc.js" />
     <Content Include=".eslintignore" />
-    <Content Include="src\scripts\containers\AppContainer.js" />
-    <Content Include="src\scripts\actions\TodoActionTypes.js" />
-    <Content Include="src\scripts\actions\TodoActions.js" />
-    <Content Include="src\scripts\dispatcher\TodoDispatcher.js" />
-    <Content Include="src\scripts\modules\Counter.js" />
-    <Content Include="src\scripts\modules\Todo.js" />
-    <Content Include="src\scripts\components\AppView.js" />
-    <Content Include="src\scripts\stores\TodoDraftStore.js" />
-    <Content Include="src\scripts\stores\TodoEditStore.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\scripts\components\Footer.react.js" />
+    <Content Include="src\scripts\components\Header.react.js" />
+    <Content Include="src\scripts\components\MainSection.react.js" />
+    <Content Include="src\scripts\components\TodoApp.react.js" />
+    <Content Include="src\scripts\components\TodoItem.react.js" />
+    <Content Include="src\scripts\components\TodoTextInput.react.js" />
+    <Content Include="src\scripts\constants\TodoConstants.js" />
+    <Content Include="src\scripts\dispatcher\AppDispatcher.js" />
     <Content Include="src\scripts\stores\TodoStore.js" />
-    <Content Include="src\scripts\components\Footer.js" />
-    <Content Include="src\scripts\components\Header.js" />
-    <Content Include="src\scripts\components\NewTodo.js" />
-    <Content Include="src\scripts\components\TodoItem.js" />
-    <Content Include="src\scripts\components\Main.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -5,7 +5,7 @@ import { render } from 'react-dom';
 import '../styles/main.less';
 
 import Page1 from '../scripts/components/page1';
-import AppContainer from '../scripts/containers/AppContainer';
+import TodoApp from '../scripts/components/TodoApp.react';
 
 // This should be the preferred option for all stateless components
 // 根据React要求, stateless component最好使用pure function
@@ -14,7 +14,7 @@ function Main () {
     <div className='main'>
       {/* 在此插入子页面 Page1*/}
       {/* <Page1 /> */}
-      <AppContainer />
+      <TodoApp />
     </div>
 	);
 }
