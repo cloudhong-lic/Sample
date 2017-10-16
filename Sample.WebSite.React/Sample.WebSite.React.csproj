@@ -164,6 +164,12 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Content Include="src\scripts\components\LoadData.jsx" />
+    <Content Include="src\scripts\actions\LoadDataActions.js" />
+    <Content Include="src\scripts\utils\LoadDataWebApiUtils.js" />
+    <Content Include="src\scripts\stores\LoadDataStore.js" />
+    <Content Include="src\scripts\constants\LoadDataConstants.js" />
+    <Content Include="src\styles\loaddata.less" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

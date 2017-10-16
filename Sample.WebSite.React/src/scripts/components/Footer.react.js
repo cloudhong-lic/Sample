@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TodoActions from '../actions/TodoActions';
+import LoadData from './LoadData';
 
 export default class Footer extends React.Component {
 
@@ -13,7 +14,11 @@ export default class Footer extends React.Component {
     var total = Object.keys(allTodos).length;
 
     if (total === 0) {
-      return null;
+      return (
+        <footer id="footer">
+          <LoadData />
+        </footer>
+      );
     }
 
     var completed = 0;
