@@ -136,15 +136,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="src\styles\page1.less" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="package.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="src\scripts\main.jsx" />
     <Content Include="src\styles\global.less" />
-    <Content Include="src\scripts\components\page1.jsx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include=".eslintrc.js" />
@@ -162,14 +158,16 @@
     <Content Include="src\scripts\stores\TodoStore.js" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
     <Content Include="src\scripts\components\LoadData.jsx" />
     <Content Include="src\scripts\actions\LoadDataActions.js" />
     <Content Include="src\scripts\utils\LoadDataWebApiUtils.js" />
     <Content Include="src\scripts\stores\LoadDataStore.js" />
     <Content Include="src\scripts\constants\LoadDataConstants.js" />
     <Content Include="src\styles\loaddata.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
