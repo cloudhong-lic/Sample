@@ -1,13 +1,12 @@
 import _ from 'lodash';
 import React from 'react';
-
 import LoadDataActions from '../actions/LoadDataActions.js';
-
 import { LoadDataStore } from '../stores/LoadDataStore.js';
 
 // 导入这个文件相关的less文件
 import '../../styles/loaddata.less';
 
+// 由于constructor需要调用这个function, 所以需要放在class外面
 function getStateFromStore() {
   return {
     data: LoadDataStore.getData(),
@@ -15,7 +14,6 @@ function getStateFromStore() {
 }
 
 class LoadData extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = getStateFromStore();
