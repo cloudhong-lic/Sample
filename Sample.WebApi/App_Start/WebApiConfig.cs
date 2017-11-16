@@ -8,6 +8,10 @@ namespace Sample.WebApi.App_Start
 	/// </summary>
 	public static class WebApiConfig
 	{
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="config"></param>
 		public static void Register(HttpConfiguration config)
 		{
 			// 激活CORS, 这样就可以跨domain访问WEBAPI了

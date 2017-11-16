@@ -12,6 +12,9 @@ using WebActivatorEx;
 
 namespace Sample.WebApi.App_Start
 {
+	/// <summary>
+	/// 
+	/// </summary>
 	public static class NinjectWebCommon
 	{
 		private static readonly Bootstrapper bootstrapper = new Bootstrapper();

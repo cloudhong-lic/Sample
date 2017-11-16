@@ -2,8 +2,16 @@
 
 namespace Sample.WebApi.Mapping.v0
 {
+	/// <summary>
+	/// 
+	/// </summary>
 	public static class MappingHelper
 	{
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sex"></param>
+		/// <returns></returns>
 		public static Contract.v0.Sex ToContract(this Domain.Models.Sex sex)
 		{
 			switch (sex)
@@ -17,6 +25,11 @@ namespace Sample.WebApi.Mapping.v0
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="species"></param>
+		/// <returns></returns>
 		public static Contract.v0.Species ToContract(this Domain.Models.Species species)
 		{
 			switch (species)

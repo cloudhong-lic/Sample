@@ -9,8 +9,14 @@ using Sample.WebApi.App_Start;
 
 namespace Sample.WebApi
 {
+	/// <summary>
+	/// 
+	/// </summary>
 	public class WebApiApplication : HttpApplication
 	{
+		/// <summary>
+		/// 
+		/// </summary>
 		protected void Application_Start()
 		{
 			GlobalConfiguration.Configure(WebApiConfig.Register);

@@ -13,7 +13,9 @@ using Sample.WebApi.Mapping.v0;
 
 namespace Sample.WebApi.Controllers.v0
 {
-	// 在此进行Route map, 比较灵活, 每个controller可以单独配置
+	/// <summary>
+	/// 在此进行Route map, 比较灵活, 每个controller可以单独配置
+	/// </summary>
 	[RoutePrefix("v0/Animals")]
 	public class AnimalsController : ApiController
 	{
@@ -24,6 +26,10 @@ namespace Sample.WebApi.Controllers.v0
 		// 这是一种良好的设计模式, 所有的模块围绕着Domain, 但却不互相调用
 		private readonly IAnimalRepository _animalRepository;
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="animalRepository"></param>
 		public AnimalsController(IAnimalRepository animalRepository)
 		{
 			_animalRepository = animalRepository;
