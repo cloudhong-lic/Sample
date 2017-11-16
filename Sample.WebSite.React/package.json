@@ -1,0 +1,51 @@
+{
+  "name": "sample.website.react",
+  "version": "1.0.0",
+  "description": "A sample website using React + Redux",
+  "main": "main.jsx",
+  "dependencies": {
+    "babel-polyfill": "^6.23.0",
+    "classnames": "^2.2.5",
+    "flux": "^3.1.3",
+    "immutable": "^3.8.1",
+    "keymirror": "^0.1.1",
+    "lodash": "^4.17.4",
+    "prop-types": "^15.5.10",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "webpack-dev-server": "^2.4.2",
+    "whatwg-fetch": "^2.0.3"
+  },
+  "devDependencies": {
+    "autoprefixer-loader": "^3.2.0",
+    "babel-core": "^6.24.0",
+    "babel-eslint": "^7.2.2",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-react": "^6.23.0",
+    "css-loader": "^0.28.0",
+    "eslint": "^4.6.1",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.3",
+    "style-loader": "^0.16.1",
+    "webpack": "^2.3.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloudhong-lic/Sample.git"
+  },
+  "scripts": {
+    "dev": "webpack-dev-server --devtool eval --progress --colors --hot --content-base build",
+    "build": "webpack -d --config webpack.config.js --colors",
+    "watch": "webpack -d --config webpack.config.js --watch --colors",
+    "prod": "SET NODE_ENV=production&&webpack -p --config webpack.config.js --colors --optimize-minimize",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cloud",
+  "license": "ISC"
+}

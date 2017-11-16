@@ -13,6 +13,10 @@ CREATE TABLE [Sample].[Animal](
 	[SpeciesId] INT NOT NULL,
 	[UpdateTime] DATETIMEOFFSET(2) NOT NULL CONSTRAINT [DF_Animal_UpdateTime] DEFAULT SYSDATETIMEOFFSET(),
 	CONSTRAINT [PK_Animal] PRIMARY KEY CLUSTERED ([AnimalKey]),
+	-- 与Sex和Species表做外键关联
+	-- TODO: 是否需要做聚合索引??
+	-- 先生成参考表, 再生成主表
+	-- TODO: 考虑多建立几个表, 写一些不同的数据库脚本
 	CONSTRAINT [FK_Animal_Sex] FOREIGN KEY ([SexId]) REFERENCES [Sample].[Sex]([Id]),
 	CONSTRAINT [FK_Animal_Species] FOREIGN KEY ([SpeciesId]) REFERENCES [Sample].[Species]([Id])
 )
@@ -61,7 +65,7 @@ SET @v = N'Time when the record is last updated, populated by default value and 
 EXECUTE sp_addextendedproperty N'MS_Description', @v, N'SCHEMA', N'Sample', N'TABLE', N'Animal', N'COLUMN', N'UpdateTime'
 GO
 
-INSERT INTO [Sample].[Animal] ([AnimalKey], [SexId], [SpeciesId]) VALUES 
+INSERT INTO [Sample].[Animal] ([AnimalKey], [SexId], [SpeciesId]) VALUES
 (1, 1, 1),
 (2, 2, 1)
 GO

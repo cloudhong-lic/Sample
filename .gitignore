@@ -217,6 +217,10 @@ FakesAssemblies/
 # Node.js Tools for Visual Studio
 .ntvs_analysis.dat
 
+# Specflow generated files
+# 在编译时自动生成feature.cs文件, 而不上传GitHub
+*.feature.cs
+
 # Visual Studio 6 build log
 *.plg
 
@@ -240,3 +244,5 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/Sample.WebSite.React/dist/
+/Sample.WebSite.React/.vscode/
