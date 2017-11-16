@@ -18,7 +18,9 @@ namespace Sample.WebApi
 			// Allow cross scripting OPTIONS requests by default
 			var corsUrls = ConfigurationManager.AppSettings["WebApiCorsSites"].Replace(" ", "").Split(',');
 			GlobalConfiguration.Configuration.MessageHandlers.Add(new CorsHandler(corsUrls, allowCredentials: true));
-			//GlobalConfiguration.Configuration.MessageHandlers.Add(new AuthenticationHandler());
+
+			// Load all assemblies in bin directory into app domain
+			// Directory.GetFiles(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "*.dll").Select(Assembly.LoadFile).ToList();
 
 			// Use XML serializer, not data-contract serializer
 			GlobalConfiguration.Configuration.Formatters.XmlFormatter.UseXmlSerializer = true;
@@ -29,7 +31,9 @@ namespace Sample.WebApi
 			// Allow cross scripting OPTIONS requests by default
 			GlobalConfiguration.Configuration.MessageHandlers.Add(new CorsHandler());
 
-//			GlobalConfiguration.Configuration.Filters.Add(new ValidateModelAttribute());
+			// 这两行本来是在App_Start/WebApiErrorLoggingConfig中昨晚错误处理filter使用的
+			// GlobalConfiguration.Configuration.Filters.Add(new ValidateModelAttribute());
+			// GlobalConfiguration.Configuration.MessageHandlers.Add(new AuthenticationHandler());
 
 			GlobalConfiguration.Configuration.EnsureInitialized();
 
