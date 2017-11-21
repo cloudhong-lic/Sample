@@ -5,6 +5,30 @@
 ###### JWT官网, 用于生成token
 https://jwt.io/
 
+Header:
+```json
+{
+  "alg": "RS256",
+  "typ": "JWT"
+}
+```
+
+Payload:
+```json
+{
+  "sub": "1234567890",
+  "name": "Cloud Hong",
+  "admin": true,
+  "iss": "www.google.com",
+  "exp": "1511212152"
+}
+```
+
+Note: 
+* iss关键字是必须的, 否则会出问题
+* 使用RS256作为算法
+* exp关键字为可选, 用于设置过期时间
+
 ###### 生成public key和private key
 http://travistidwell.com/blog/2013/09/06/an-online-rsa-public-and-private-key-generator/
 
@@ -33,3 +57,6 @@ fhduAuEiCtjOnqit1QIDAQAB
 
 ###### 将public key转换成XML
 https://superdry.apphb.com/tools/online-rsa-key-converter
+
+###### 将时间转换为Epoch timestamp
+https://www.epochconverter.com/
