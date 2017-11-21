@@ -4,6 +4,7 @@ using System.Web.Http.Description;
 using Sample.WebApi.App_Start;
 using Swashbuckle.Application;
 using WebActivatorEx;
+using Library.WebApi.Swagger.Filters;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
@@ -164,6 +165,9 @@ namespace Sample.WebApi.App_Start
 					// to execute the operation
 					//
 					//c.OperationFilter<AssignOAuth2SecurityRequirements>();
+
+					// 在Swagger中增加Authorization的输入, 这个Authorization会出现在Request Headers中
+					c.OperationFilter<AddAuthorizationHeaderParameterFilter>();
 
 					// Post-modify the entire Swagger document by wiring up one or more Document filters.
 					// This gives full control to modify the final SwaggerDocument. You should have a good understanding of

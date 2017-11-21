@@ -53,6 +53,53 @@ namespace Sample.WebApi.Controllers.v0
 		[EnableCors("*", "*", "*")]
 		public async Task<Animal> Get(int animalKey)
 		{
+			return await GetAnimal(animalKey);
+		}
+
+		/// <summary>
+		/// 需要Authorization的Api
+		/// </summary>
+		/// <remarks>
+		/// Authorization access token: eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkNsb3VkIEhvbmciLCJhZG1pbiI6dHJ1ZSwiaXNzIjoid3d3Lmdvb2dsZS5jb20ifQ.c1cVQjrhBZkH5kfMwQ6pHgrMS789JDBH2fezC4dyBf7MHdPSPRXgof6Ke8Kt58BO_q3a61_oCK72aJkmsP7gkH3KRibLe-jj6lBRvp3YSI-0pRUEFROf5Y3LV9MmlRzB_5UeHm3Br0Tjw54Acm28fqRdIu8__kc8Waow-B7Ld_c
+		/// 
+		/// -----BEGIN RSA PRIVATE KEY-----
+		/// MIICXgIBAAKBgQDj6Uvptmo3u21Us5Z+QclmNSKrQpM2ubMaj6kz/fE+FIiOldey
+		/// UzvS5wA9k3MiS+PXE1gsU5xDmVVI7hHYRWdAvZiMTGS3dxXYAYnprTL4/wub6Y/9
+		/// 6uxrcPoHKxtGIrQt2jqGhFGcitD1nWmdEtPjee/3fhduAuEiCtjOnqit1QIDAQAB
+		/// AoGBAJdT4YbWCyLkPQzfjY5ZqhtGLrXeJ5dPp/974hJWi+b3hVB/Z8/M+kzn+r3n
+		/// +KuODkNRYdtUzM4JspoRESIzuwD9tqAqhykSTP0gIvLKTYwJVx2+uSaCN+pyldgq
+		/// tBoIxfb/t+nOfb7lTQhYP8ZWXWkdBsZcZvpgTOY3/GAGMGeFAkEA+SCDpYwczt9+
+		/// LEDXbEWhcpkSVdc6+9Oq7/A7jah5nvVbwh6UyR0T0UepYOxPL2Wo9Wj0LFyJQ4IW
+		/// EEdZMZVetwJBAOoy8bgCyCveRgk4aricBlcHUxhid8Or6vuCaqRP9gyvRe7REuE3
+		/// 1QoEPlC894lW4EN5OIq/EmFsbvqkJKSUS9MCQQCI46fS0GGH/uBKmrqEYOJsoNWl
+		/// W2WquE0mGH/wv9FMWg+4Y6tnstWP2mukuVRte9PSPYBl29cExDcxbLMC/suTAkAF
+		/// jLl/o8k8iOLd+xFEWKYpz8mfTU4LO/qwhRGj3SU2fbzJgPjSj3Ej8J/NZ/zxqzZb
+		/// QvcdCpQT7O7gT51yrPTzAkEAt4SopUbbd1sRNQZjrHSN611ymNdYHf4RKP9LquOI
+		/// gdmhejU/CBlp7CAQqui8H3VVJuvkO1BJhSTorxSW21vvwA==
+		/// -----END RSA PRIVATE KEY-----
+		/// 
+		/// -----BEGIN PUBLIC KEY-----
+		/// MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDj6Uvptmo3u21Us5Z+QclmNSKr
+		/// QpM2ubMaj6kz/fE+FIiOldeyUzvS5wA9k3MiS+PXE1gsU5xDmVVI7hHYRWdAvZiM
+		/// TGS3dxXYAYnprTL4/wub6Y/96uxrcPoHKxtGIrQt2jqGhFGcitD1nWmdEtPjee/3
+		/// fhduAuEiCtjOnqit1QIDAQAB
+		/// -----END PUBLIC KEY-----
+		/// </remarks>
+		/// <param name="animalKey">animal key</param>
+		/// <returns></returns>
+		/// <exception cref="HttpResponseException"></exception>
+		/// <response code="400">Bad request</response>
+		/// <response code="500">Internal Server Error</response>
+		[HttpGet]
+		[Route("Authorization/{animalKey}")]
+		[Authorize]
+		public async Task<Animal> GetWithAuthorization(int animalKey)
+		{
+			return await GetAnimal(animalKey);
+		}
+
+		private async Task<Animal> GetAnimal(int animalKey)
+		{
 			try
 			{
 				var animal = await _animalRepository.Get(animalKey).ConfigureAwait(false);
